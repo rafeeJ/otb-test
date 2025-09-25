@@ -16,9 +16,9 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Approach
-My approach to this test was to first understand the requirements and the design. 
+My approach to this project was to first get the app working, and then make it better.
 
-I then broke down the requirements into smaller tasks and started working on them one by one.
+I started with fetching the data. 
 
 ## Decisions
 
