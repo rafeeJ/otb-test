@@ -1,9 +1,8 @@
+# OTB Tech Test - Rafee Jenkins
+
+## How to run
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
 ```bash
 npm run dev
 # or
@@ -16,21 +15,23 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Approach
+My approach to this test was to first understand the requirements and the design. I then broke down the requirements into smaller tasks and started working on them one by one.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Decisions
 
-## Learn More
+### Folder Structure
 
-To learn more about Next.js, take a look at the following resources:
+I like to use a technique called 'Screaming Architecture'. This means that the folder structure should reflect the domain of the application, rather than the technical aspects.
+IE I don't have a folder called 'components' or 'utils', instead I have folders that reflect the features of the application.
+In this case, I have a feature called 'hotels-list', so I have a folder called 'hotels-list' that contains all the components, hooks, and types related to that feature.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Using this approach makes it far easier to find things, especially as the application grows in size.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Why Next.js?
 
-## Deploy on Vercel
+### Why Tailwind?
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Why Biome?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Why Tanstack Query?
