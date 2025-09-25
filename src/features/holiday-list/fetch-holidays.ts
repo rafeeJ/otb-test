@@ -29,13 +29,13 @@ type BookingDetails = {
   };
 };
 
-export type HotelData = {
+export type Holiday = {
   resort: Resort;
   flightDetails: FlightDetails;
   bookingDetails: BookingDetails;
 };
 
-export const fetchHolidays = async (): Promise<HotelData[]> => {
+export const fetchHolidays = async (): Promise<Holiday[]> => {
   const res = await fetch(
     "https://static.onthebeach.co.uk/fe-code-test/data.json",
   );

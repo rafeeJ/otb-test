@@ -1,21 +1,17 @@
 "use client";
-import { useHolidayData } from "@/features/hotel-list/use-holiday-data";
+import { HolidayList } from "@/features/holiday-list/holiday-list";
+import { useHolidayData } from "@/features/holiday-list/use-holiday-data";
 
 export default function Home() {
   const { data, isLoading, error } = useHolidayData();
 
   if (isLoading) return <div>Loading...</div>;
 
-  if (error) return <div>Error loading hotels</div>;
+  if (error) return <div>Error loading holidays</div>;
 
   return (
-    <div>
-      <h1>Hotel List</h1>
-      <ul>
-        {data?.map((hotel, idx) => (
-          <li key={idx}>{JSON.stringify(hotel, null, 2)}</li>
-        ))}
-      </ul>
-    </div>
+    <section>
+      <HolidayList holidays={data} />
+    </section>
   );
 }
