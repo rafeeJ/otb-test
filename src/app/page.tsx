@@ -10,8 +10,10 @@ export default function Home() {
   if (error) return <div>Error loading holidays</div>;
 
   return (
-    <section className="p-12">
-      <HolidayList holidays={data} />
-    </section>
+    <div className="bg-otb-gradient">
+      <section className="p-12">
+        <HolidayList holidays={data} />
+      </section>
+    </div>
   );
 }

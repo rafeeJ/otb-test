@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/src/app/page.tsx">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/src/app/page.tsx" />
+              <option name="originalContent" value="&quot;use client&quot;;&#10;import { HolidayList } from &quot;@/features/holiday-list/holiday-list&quot;;&#10;import { useHolidayData } from &quot;@/features/holiday-list/use-holiday-data&quot;;&#10;&#10;export default function Home() {&#10;  const { data, isLoading, error } = useHolidayData();&#10;&#10;  if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;&#10;&#10;  if (error) return &lt;div&gt;Error loading holidays&lt;/div&gt;;&#10;&#10;  return (&#10;    &lt;div className=&quot;bg-otb-gradient&quot;&gt;&#10;      &lt;section className=&quot;p-12&quot;&gt;&#10;        &lt;HolidayList holidays={data} /&gt;&#10;      &lt;/section&gt;&#10;    &lt;/div&gt;&#10;  );&#10;}&#10;" />
+              <option name="updatedContent" value="&quot;use client&quot;;&#10;import { HolidayList } from &quot;@/features/holiday-list/holiday-list&quot;;&#10;import { useHolidayData } from &quot;@/features/holiday-list/use-holiday-data&quot;;&#10;&#10;export default function Home() {&#10;  const { data, isLoading, error } = useHolidayData();&#10;&#10;  if (isLoading) return &lt;div&gt;Loading...&lt;/div&gt;;&#10;&#10;  if (error) return &lt;div&gt;Error loading holidays&lt;/div&gt;;&#10;&#10;  return (&#10;    &lt;div className=&quot;bg-otb-gradient&quot;&gt;&#10;      &lt;section className=&quot;p-12&quot;&gt;&#10;        &lt;HolidayList holidays={data} /&gt;&#10;      &lt;/section&gt;&#10;    &lt;/div&gt;&#10;  );&#10;}" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

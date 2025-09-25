@@ -43,3 +43,8 @@ However, if the app were to grow ins size - I would consider using CSS modules.
 ### Why Tanstack Query?
 I prefer to use a library for data fetching and caching. I have found in the past that developers have struggled with
 fetching data and subsequent state management. Tanstack Query takes care of this for me, and also provides a lot of features out of the box such as caching, refetching, and pagination.
+
+## If I had more time
+
+### Responsive Design
+I would make the app responsive. I would use Tailwind's responsive utilities to achieve this.
