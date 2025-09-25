@@ -1,4 +1,5 @@
 import type { Holiday } from "@/features/holiday-list/fetch-holidays";
+import { HolidayListItem } from "@/features/holiday-list/holiday-list-item";
 
 interface Props {
   holidays: Holiday[];
@@ -6,13 +7,10 @@ interface Props {
 
 export const HolidayList = ({ holidays }: Props) => {
   return (
-    <>
-      <h1>Holiday List</h1>
-      <ul>
-        {holidays.map((holidays, idx) => (
-          <li key={idx}>{JSON.stringify(holidays, null, 2)}</li>
-        ))}
-      </ul>
-    </>
+    <div className="flex gap-4 flex-col">
+      {holidays.map((holiday) => (
+        <HolidayListItem key={holiday.resort.id} holiday={holiday} />
+      ))}
+    </div>
   );
 };

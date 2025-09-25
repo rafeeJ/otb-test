@@ -10,7 +10,7 @@ export default function Home() {
   if (error) return <div>Error loading holidays</div>;
 
   return (
-    <section>
+    <section className="p-12">
       <HolidayList holidays={data} />
     </section>
   );

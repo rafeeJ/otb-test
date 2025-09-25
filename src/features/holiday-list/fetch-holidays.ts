@@ -16,6 +16,11 @@ type FlightDetails = {
   departureDate: string;
 };
 
+export type Price = {
+  amount: number;
+  currency: string;
+};
+
 type BookingDetails = {
   party: {
     adults: number;
@@ -23,10 +28,7 @@ type BookingDetails = {
     infants?: number;
   };
   lengthOfStay: number;
-  price: {
-    amount: number;
-    currency: string;
-  };
+  price: Price;
 };
 
 export type Holiday = {
