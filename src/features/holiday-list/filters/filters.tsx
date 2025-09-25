@@ -6,29 +6,25 @@ interface FiltersProps {
 }
 
 export const Filters = ({ activeSort, onSortChange }: FiltersProps) => {
+  const filters = [
+    { label: "sort by price", value: "price", emoji: "💷" },
+    { label: "sort by star rating", value: "star", emoji: "⭐" },
+    { label: "sort alphabetically", value: "name", emoji: "🔤" },
+  ];
+
   return (
-    <div className="flex gap-2 mb-4">
-      <button
-        type="button"
-        className={`px-3 py-1 rounded ${activeSort === "price" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
-        onClick={() => onSortChange("price")}
-      >
-        Price
-      </button>
-      <button
-        type="button"
-        className={`px-3 py-1 rounded ${activeSort === "star" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
-        onClick={() => onSortChange("star")}
-      >
-        Star Rating
-      </button>
-      <button
-        type="button"
-        className={`px-3 py-1 rounded ${activeSort === "name" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
-        onClick={() => onSortChange("name")}
-      >
-        Hotel Name
-      </button>
+    <div className="flex flex-col">
+      {filters.map((filter) => (
+        <button
+          key={filter.value}
+          type="button"
+          className={`hover:cursor-pointer hover:bg-gray-200 px-3 py-3 flex justify-between ${activeSort === filter.value ? "bg-otb-blue text-white" : "bg-white"}`}
+          onClick={() => onSortChange(filter.value as SortOption)}
+        >
+          <span>{filter.label}</span>
+          <span className="ml-2">{filter.emoji}</span>
+        </button>
+      ))}
     </div>
   );
 };

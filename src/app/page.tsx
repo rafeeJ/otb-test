@@ -37,9 +37,13 @@ export default function Home() {
 
   return (
     <div className="bg-otb-gradient">
-      <section className="p-12">
-        <Filters activeSort={sort} onSortChange={setSort} />
-        <HolidayList holidays={sortedHolidays} />
+      <section className="p-10 grid grid-cols-12">
+        <div className="col-start-2 col-span-2">
+          <Filters activeSort={sort} onSortChange={setSort} />
+        </div>
+        <div className="col-start-5 col-end-12">
+          <HolidayList holidays={sortedHolidays} />
+        </div>
       </section>
     </div>
   );

@@ -3,3 +3,9 @@
 .bg-otb-gradient {
   background-image: url("../../public/background.png");
 }
+
+@theme {
+  --color-otb-blue: #17317f;
+  --color-otb-yellow: #fedc07;
+  --color-otb-grey: #ccc;
+}
