@@ -16,7 +16,9 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Approach
-My approach to this test was to first understand the requirements and the design. I then broke down the requirements into smaller tasks and started working on them one by one.
+My approach to this test was to first understand the requirements and the design. 
+
+I then broke down the requirements into smaller tasks and started working on them one by one.
 
 ## Decisions
 
@@ -30,8 +32,14 @@ Using this approach makes it far easier to find things, especially as the applic
 
 ### Why Next.js?
 
+The main motivator for me was that Next is used already at OTB, so it made sense to use it for this test.
+Next.js is a great framework that provides a lot of features out of the box, such as routing, server-side rendering, and static site generation.
+
 ### Why Tailwind?
 
-### Why Biome?
+I like Tailwind as it allows me to iterate styles quickly without having to leave JSX. For the time constraints for this app, it makes sense. 
+However, if the app were to grow ins size - I would consider using CSS modules.
 
 ### Why Tanstack Query?
+I prefer to use a library for data fetching and caching. I have found in the past that developers have struggled with
+fetching data and subsequent state management. Tanstack Query takes care of this for me, and also provides a lot of features out of the box such as caching, refetching, and pagination.
