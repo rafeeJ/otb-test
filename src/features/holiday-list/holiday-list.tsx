@@ -34,7 +34,7 @@ export const HolidayList = () => {
   if (error) return <div>Error loading holidays</div>;
 
   return (
-    <div className="flex gap-4 flex-col">
+    <div className="flex gap-6 flex-col">
       {sortedHolidays.map((holiday) => (
         <HolidayListItem key={holiday.resort.id} holiday={holiday} />
       ))}

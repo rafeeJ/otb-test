@@ -44,7 +44,7 @@ export const HolidayListItem = ({ holiday }: Props) => {
     : "Read more about this hotel";
 
   return (
-    <div className="grid grid-cols-12 bg-white mb-2 overflow-hidden">
+    <div className="grid grid-cols-12 bg-white overflow-hidden">
       <div className="col-span-8 relative">
         <img
           src={resort.image.url}

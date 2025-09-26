@@ -38,13 +38,27 @@ Next.js is a great framework that provides a lot of features out of the box, suc
 ### Why Tailwind?
 
 I like Tailwind as it allows me to iterate styles quickly without having to leave JSX. For the time constraints for this app, it makes sense. 
-However, if the app were to grow ins size - I would consider using CSS modules.
+However, if the app were to grow in size - I would consider using CSS modules.
 
 ### Why Tanstack Query?
 I prefer to use a library for data fetching and caching. I have found in the past that developers have struggled with
 fetching data and subsequent state management. Tanstack Query takes care of this for me, and also provides a lot of features out of the box such as caching, refetching, and pagination.
 
+Using it here made sense as I could define how I want to fetch data, and Tanstack Query takes care of the rest. It's also client-side so I can use it in a Next.js app without any issues.
+
+### Why Nuqs / Search Params?
+When dealing with search/filters, I like to use search paramaters so that the state of the application can be shared via a URL. 
+It's a great UX for users to be able to share a link with their filters applied - in my opinion.
+
+I stumbled across Nuqs a while ago, and liked the way it worked. I used to use the React Router's useSearchParams hook, but I am not using React Router here!
+I used Nuqs+search params here because as I found that the initial approach (useState) meant that components were tightly coupled. 
+However, now I don't have to have a parent component between the filter and list to share state, and they can both tap into the search paramas when they need to.
+This also means down the line, if theres another component to be added - there shouldnt be too much of a hassle to tap into state.
+
 ## If I had more time
 
 ### Responsive Design
-I would make the app responsive. I would use Tailwind's responsive utilities to achieve this.
+I would make the app more responsive. I would use Tailwind's responsive utilities to achieve this.
+There is an example of this in the Page.tsx file where I make the UI vertical on small screens.
+
+

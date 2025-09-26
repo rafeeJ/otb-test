@@ -42,10 +42,12 @@ export const Filters = () => {
             onClick={() => handleFilterChange(filter.value)}
           >
             <span>{filter.label}</span>
-            <span className="ml-2">{filter.emoji}</span>
-            {activeSort === filter.value && (
-              <span className="ml-2">{direction === "asc" ? "↑" : "↓"}</span>
-            )}
+            <div>
+              {activeSort === filter.value && (
+                <span className="ml-2">{direction === "asc" ? "↑" : "↓"}</span>
+              )}
+              <span className="ml-2">{filter.emoji}</span>
+            </div>
           </button>
           {idx < filters.length - 1 && <hr className="m-0 p-0 bg-otb-blue" />}
         </Fragment>
