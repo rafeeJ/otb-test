@@ -1,3 +1,5 @@
+import { cn } from "@/utils/cn";
+
 export type SortOption = "price" | "star" | "name";
 
 interface FiltersProps {
@@ -18,7 +20,12 @@ export const Filters = ({ activeSort, onSortChange }: FiltersProps) => {
         <button
           key={filter.value}
           type="button"
-          className={`hover:cursor-pointer hover:bg-gray-200 px-3 py-3 flex justify-between ${activeSort === filter.value ? "bg-otb-blue text-white" : "bg-white"}`}
+          className={cn(
+            "hover:cursor-pointer hover:bg-gray-200 px-3 py-3 flex justify-between bg-white",
+            {
+              "bg-otb-blue text-white": activeSort === filter.value,
+            },
+          )}
           onClick={() => onSortChange(filter.value as SortOption)}
         >
           <span>{filter.label}</span>

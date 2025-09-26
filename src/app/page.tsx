@@ -1,9 +1,6 @@
 "use client";
 import { useMemo, useState } from "react";
-import {
-  Filters,
-  type SortOption,
-} from "@/features/holiday-list/filters/filters";
+import { Filters, type SortOption } from "@/features/filters/filters";
 import { HolidayList } from "@/features/holiday-list/holiday-list";
 import { useHolidayData } from "@/features/holiday-list/use-holiday-data";
 
