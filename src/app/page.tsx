@@ -1,17 +1,19 @@
 "use client";
-import { useMemo, useState } from "react";
-import { Filters, type SortOption } from "@/features/filters/filters";
+import { useQueryState } from "nuqs";
+import { useMemo } from "react";
+import { Filters } from "@/features/filters/filters";
 import { HolidayList } from "@/features/holiday-list/holiday-list";
 import { useHolidayData } from "@/features/holiday-list/use-holiday-data";
 
 export default function Home() {
   const { data, isLoading, error } = useHolidayData();
-  const [sort, setSort] = useState<SortOption>("price");
-
+  const [activeSort] = useQueryState("sort", {
+    defaultValue: "price",
+  });
   const sortedHolidays = useMemo(() => {
     if (!data) return [];
     const holidaysCopy = [...data];
-    switch (sort) {
+    switch (activeSort) {
       case "star":
         return holidaysCopy.sort(
           (a, b) => b.resort.starRating - a.resort.starRating,
@@ -26,7 +28,7 @@ export default function Home() {
             a.bookingDetails.price.amount - b.bookingDetails.price.amount,
         );
     }
-  }, [data, sort]);
+  }, [data, activeSort]);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -36,7 +38,7 @@ export default function Home() {
     <div className="bg-otb-gradient">
       <section className="p-10 grid grid-cols-12">
         <div className="col-start-2 col-span-2">
-          <Filters activeSort={sort} onSortChange={setSort} />
+          <Filters />
         </div>
         <div className="col-start-5 col-end-12">
           <HolidayList holidays={sortedHolidays} />

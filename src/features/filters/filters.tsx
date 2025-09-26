@@ -1,14 +1,19 @@
+"use client";
+import { useQueryState } from "nuqs";
 import { Fragment } from "react";
 import { cn } from "@/utils/cn";
 
 export type SortOption = "price" | "star" | "name";
 
-interface FiltersProps {
-  activeSort: SortOption;
-  onSortChange: (sort: SortOption) => void;
-}
+export const Filters = () => {
+  const [activeSort, setActiveSort] = useQueryState("sort", {
+    defaultValue: "price",
+  });
 
-export const Filters = ({ activeSort, onSortChange }: FiltersProps) => {
+  const handleFilterChange = (newSort: string) => {
+    setActiveSort(newSort);
+  };
+
   const filters = [
     { label: "sort by price", value: "price", emoji: "💷" },
     { label: "sort by star rating", value: "star", emoji: "⭐" },
@@ -28,7 +33,7 @@ export const Filters = ({ activeSort, onSortChange }: FiltersProps) => {
                   activeSort === filter.value,
               },
             )}
-            onClick={() => onSortChange(filter.value as SortOption)}
+            onClick={() => handleFilterChange(filter.value)}
           >
             <span>{filter.label}</span>
             <span className="ml-2">{filter.emoji}</span>
