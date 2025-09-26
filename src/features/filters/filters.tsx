@@ -10,10 +10,14 @@ interface Filter {
 }
 
 export const Filters = () => {
-  const [activeSort, setActiveSort] = useActiveSort();
+  const [{ sort: activeSort, direction }, setSortState] = useActiveSort();
 
   const handleFilterChange = (newSort: "price" | "star" | "name") => {
-    void setActiveSort(newSort);
+    if (activeSort === newSort) {
+      void setSortState({ direction: direction === "asc" ? "desc" : "asc" });
+    } else {
+      void setSortState({ sort: newSort, direction: "asc" });
+    }
   };
 
   const filters: Filter[] = [
@@ -39,6 +43,9 @@ export const Filters = () => {
           >
             <span>{filter.label}</span>
             <span className="ml-2">{filter.emoji}</span>
+            {activeSort === filter.value && (
+              <span className="ml-2">{direction === "asc" ? "↑" : "↓"}</span>
+            )}
           </button>
           {idx < filters.length - 1 && <hr className="m-0 p-0 bg-otb-blue" />}
         </Fragment>
