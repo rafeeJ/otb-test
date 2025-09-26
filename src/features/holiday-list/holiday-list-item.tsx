@@ -45,7 +45,7 @@ export const HolidayListItem = ({ holiday }: Props) => {
 
   return (
     <div className="grid grid-cols-12 bg-white mb-2 overflow-hidden">
-      <div className="col-span-9 relative">
+      <div className="col-span-8 relative">
         <img
           src={resort.image.url}
           alt={resort.image.description}
@@ -61,7 +61,7 @@ export const HolidayListItem = ({ holiday }: Props) => {
           <span className="ml-2">{showOverview ? "▲" : "▼"}</span>
         </button>
       </div>
-      <div className="col-span-3 p-4 flex flex-col justify-between">
+      <div className="col-span-4 p-4 flex flex-col justify-between">
         <div>
           <h1 className="text-xl font-bold text-[#003366]">{resort.name}</h1>
           <h2 className="text-base text-[#003366] mb-2">
@@ -69,12 +69,12 @@ export const HolidayListItem = ({ holiday }: Props) => {
           </h2>
           <div className="flex items-center mb-2">
             {Array.from({ length: resort.starRating }).map((_, i) => (
-              <span key={i} className="text-yellow-400 text-lg">
+              <span key={`full-${i + 1}`} className="text-yellow-400 text-lg">
                 ★
               </span>
             ))}
             {Array.from({ length: 5 - resort.starRating }).map((_, i) => (
-              <span key={i} className="text-gray-300 text-lg">
+              <span key={`empty-${i + 1}`} className="text-gray-300 text-lg">
                 ★
               </span>
             ))}
