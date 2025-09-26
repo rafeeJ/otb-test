@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useActiveSort } from "@/features/filters/use-active-sort";
 import type { Holiday } from "@/features/holiday-list/fetch-holidays";
-import { HolidayListItem } from "@/features/holiday-list/holiday-list-item";
+import { HolidayListItem } from "@/features/holiday-list/holiday-list-item/holiday-list-item";
 import { useHolidayData } from "@/features/holiday-list/use-holiday-data";
 
 export const HolidayList = () => {

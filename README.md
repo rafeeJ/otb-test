@@ -16,9 +16,24 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Approach
-My approach to this project was to first get the app working, and then make it better.
+My approach to this project was to first get the app working, and then make it better. You can see all justifications for my decisions below.
 
-I started with fetching the data. 
+I started with fetching the data. Which I did using TanStack Query.
+Once I fetched the data, I used Copilot to turn the response into a Type. This means that I could define the shape of the data, and start developing the UI.
+
+For the UI, I started with just the holiday-list, and passed in the fetched data as a prop to display. As we have the expanding aspect, I knew I would have
+to create a component for each holiday - hence the holiday-list-item component. This is so we can manage the open and close state. 
+
+I then moved onto the sorting. I started by creating the filters.tsx file, and added the buttons for sorting.
+I used an array of objects so I could define what a filter was, and then map over them to create the buttons. 
+This meant that in the future, the list of filters can be expanded easily, without changing the UI code.
+
+Once this was done, I realised that the state was being passed down too many levels, and that the filter and list were tightly coupled.
+My instinct with searches/filters is to use search params. There isn't an inbuilt way of managing search param state in React, so I used Nuqs to help manage search param state.
+I explain my reasoning later for this. Once I had installed Nuqs, it meant that I could remove a lot of the bloat around passing down props.
+
+For styling, I started off using a Copilot generated file for the hotel list - but it became apparent it was not accurate. So I used it as a guide, and built on top of it.
+I used Tailwind for styling as it allows me to iterate quickly, and I am familiar with it.
 
 ## Decisions
 

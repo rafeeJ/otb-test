@@ -1,33 +1,15 @@
 import { useState } from "react";
-import type { Holiday, Price } from "@/features/holiday-list/fetch-holidays";
+import type { Holiday } from "@/features/holiday-list/fetch-holidays";
+import { BookNowButton } from "@/features/holiday-list/holiday-list-item/book-now-button";
+import {
+  formatDate,
+  getPartyString,
+} from "@/features/holiday-list/holiday-list-item/formatters";
+import { StarRating } from "@/features/holiday-list/holiday-list-item/start-rating";
 
 interface Props {
   holiday: Holiday;
 }
-
-const getPartyString = (party: {
-  adults: number;
-  children?: number;
-  infants?: number;
-}) => {
-  const parts = [];
-  if (party.adults)
-    parts.push(`${party.adults} Adult${party.adults > 1 ? "s" : ""}`);
-  if (party.children)
-    parts.push(`${party.children} Child${party.children > 1 ? "ren" : ""}`);
-  if (party.infants)
-    parts.push(`${party.infants} Infant${party.infants > 1 ? "s" : ""}`);
-  return parts.join(" & ");
-};
-
-const formatDate = (dateStr: string) => {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-};
 
 export const HolidayListItem = ({ holiday }: Props) => {
   const [showOverview, setShowOverview] = useState(false);
@@ -67,18 +49,7 @@ export const HolidayListItem = ({ holiday }: Props) => {
           <h2 className="text-base text-[#003366] mb-2">
             {resort.regionName}, {resort.countryName}
           </h2>
-          <div className="flex items-center mb-2">
-            {Array.from({ length: resort.starRating }).map((_, i) => (
-              <span key={`full-${i + 1}`} className="text-yellow-400 text-lg">
-                ★
-              </span>
-            ))}
-            {Array.from({ length: 5 - resort.starRating }).map((_, i) => (
-              <span key={`empty-${i + 1}`} className="text-gray-300 text-lg">
-                ★
-              </span>
-            ))}
-          </div>
+          <StarRating starRating={resort.starRating} />
           <div className="text-sm text-[#003366] mb-2">
             <p>{partyString}</p>
             {flightDetails.departureDate && (
@@ -104,17 +75,6 @@ export const HolidayListItem = ({ holiday }: Props) => {
           <p>{resort.overview}</p>
         </div>
       )}
-    </div>
-  );
-};
-
-export const BookNowButton = ({ price }: { price: Price }) => {
-  const priceString = `${price.amount.toFixed(2)} ${price.currency}`;
-
-  return (
-    <div className="rounded-sm flex flex-col justify-between items-center bg-[#ffe600] p-4 min-w-[180px] max-w-[220px] text-[#003366]">
-      <p className="text-center font-bold rounded w-full">Book now</p>
-      <div className="text-2xl font-bold text-right">{priceString}</div>
     </div>
   );
 };
