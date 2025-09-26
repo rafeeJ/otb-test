@@ -1,4 +1,3 @@
-import { useQueryState } from "nuqs";
 import { useMemo } from "react";
 import { useActiveSort } from "@/features/filters/use-active-sort";
 import { HolidayListItem } from "@/features/holiday-list/holiday-list-item";
@@ -28,7 +27,7 @@ export const HolidayList = () => {
     }
   }, [data, activeSort]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div className="animate-spin">Loading...</div>;
 
   if (error) return <div>Error loading holidays</div>;
 

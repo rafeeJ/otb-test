@@ -3,14 +3,20 @@ import { Fragment } from "react";
 import { useActiveSort } from "@/features/filters/use-active-sort";
 import { cn } from "@/utils/cn";
 
+interface Filter {
+  label: string;
+  value: "price" | "star" | "name";
+  emoji: string;
+}
+
 export const Filters = () => {
   const [activeSort, setActiveSort] = useActiveSort();
 
-  const handleFilterChange = (newSort: string) => {
+  const handleFilterChange = (newSort: "price" | "star" | "name") => {
     void setActiveSort(newSort);
   };
 
-  const filters = [
+  const filters: Filter[] = [
     { label: "sort by price", value: "price", emoji: "💷" },
     { label: "sort by star rating", value: "star", emoji: "⭐" },
     { label: "sort alphabetically", value: "name", emoji: "🔤" },
