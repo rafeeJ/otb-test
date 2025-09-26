@@ -1,7 +1,7 @@
 "use client";
 import { Fragment } from "react";
 import { useActiveSort } from "@/features/filters/use-active-sort";
-import { cn } from "@/utils/cn";
+import { cn } from "@/styles/cn";
 
 interface Filter {
   label: string;

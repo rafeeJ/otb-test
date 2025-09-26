@@ -71,10 +71,17 @@ However, now I don't have to have a parent component between the filter and list
 This also means down the line, if theres another component to be added - there shouldnt be too much of a hassle to tap into state.
 
 ## If I had more time
+I was on holiday when I recieved this test, so I wasn't able to spend as much time as I wanted on this.
 
 ### Responsive Design
+
 I would make the app more responsive. I would use Tailwind's responsive utilities to achieve this.
 There is an example of this in the Page.tsx file where I make the UI vertical on small screens.
 
-### Playwright Tests
-I would add some end to end tests with Playwright to ensure that happy paths are functioning as expected.
+### Tests
+
+I would add some more unit tests. I put a few examples in the filters.test.tsx file. I chose this as it's a critical component for the app to work.
+I have tested that the filters render, and that clicking a filter updates the search params. As well as a test to ensure that we can handle an invalid search param state.
+
+I would add some end to end tests with Playwright to ensure that happy paths are functioning as expected. I would possible even run these as a synthetic monitoring test
+to ensure that the app is always up and running.
