@@ -1,17 +1,13 @@
 "use client";
-import { useQueryState } from "nuqs";
 import { Fragment } from "react";
+import { useActiveSort } from "@/features/filters/use-active-sort";
 import { cn } from "@/utils/cn";
 
-export type SortOption = "price" | "star" | "name";
-
 export const Filters = () => {
-  const [activeSort, setActiveSort] = useQueryState("sort", {
-    defaultValue: "price",
-  });
+  const [activeSort, setActiveSort] = useActiveSort();
 
   const handleFilterChange = (newSort: string) => {
-    setActiveSort(newSort);
+    void setActiveSort(newSort);
   };
 
   const filters = [

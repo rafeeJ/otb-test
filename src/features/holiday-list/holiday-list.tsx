@@ -1,13 +1,13 @@
 import { useQueryState } from "nuqs";
 import { useMemo } from "react";
+import { useActiveSort } from "@/features/filters/use-active-sort";
 import { HolidayListItem } from "@/features/holiday-list/holiday-list-item";
 import { useHolidayData } from "@/features/holiday-list/use-holiday-data";
 
 export const HolidayList = () => {
   const { data, isLoading, error } = useHolidayData();
-  const [activeSort] = useQueryState("sort", {
-    defaultValue: "price",
-  });
+  const [activeSort] = useActiveSort();
+
   const sortedHolidays = useMemo(() => {
     if (!data) return [];
     const holidaysCopy = [...data];
