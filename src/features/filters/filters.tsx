@@ -35,7 +35,7 @@ export const Filters = () => {
             className={cn(
               "hover:cursor-pointer hover:bg-gray-200 px-3 py-3 flex justify-between bg-white",
               {
-                "bg-otb-blue text-white hover:bg-otb-blue":
+                "bg-otb-blue text-white hover:bg-otb-blue active":
                   activeSort === filter.value,
               },
             )}

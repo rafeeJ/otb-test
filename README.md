@@ -76,4 +76,5 @@ This also means down the line, if theres another component to be added - there s
 I would make the app more responsive. I would use Tailwind's responsive utilities to achieve this.
 There is an example of this in the Page.tsx file where I make the UI vertical on small screens.
 
-
+### Playwright Tests
+I would add some end to end tests with Playwright to ensure that happy paths are functioning as expected.
